@@ -1,0 +1,29 @@
+---
+title: "rbasic"
+author: "知了新聞團隊"
+# date: "3/19/2017"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+## R 基礎語法
+
+- **TODO**
+
+## 畫圖之前先把資料讀進來
+
+- tidyverse
+
+```{r}
+# install.packages("tidyverse")
+library(tidyverse)
+```
+
+## 畫圖之前先把資料讀進來
+
+- dplyr
+
+- magrittr (pipe %>%)
+
+- **TODO**
+
