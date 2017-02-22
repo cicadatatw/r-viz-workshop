@@ -1,0 +1,14 @@
+---
+title: "ggplot2"
+author: "知了新聞團隊"
+# date: "3/19/2017"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+## 使用 ggplot2 畫圖
+
+```{r}
+# install.packages("ggplot2")
+# library(ggplot2) # already imported by tidyverse.
+```
