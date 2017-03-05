@@ -1,0 +1,29 @@
+---
+title: "實作！新聞中的資訊圖表"
+subtitle: "連ＯＯ都在用的 `ggplot2`"
+author: "知了新聞團隊"
+# date: "3/19/2017"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+## R / RStudio 介紹
+
+## RStudio 快捷鍵們
+
+[All RStudio keyboard shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
+
+功能                    | Windows & Linux    | Mac
+----------------------- | ------------------ | --------------------
+顯示快捷鍵              | Alt+Shift+K        | Option+Shift+K
+自動補完	              | Tab or Ctrl+Space  | Tab or Command+Space
+執行（單行／選取範圍）  | Ctrl+Enter         | Command+Enter
+註解（單行／選取範圍）  | Ctrl+Shift+C       | Command+Shift+C
+存擋                    | Ctrl+S             | Command+S
+縮排                    | Ctrl+I             | Command+I
+
+```{r child = 'rbasic.Rmd'}
+```
+
+```{r child = 'ggplot2.Rmd'}
+```
