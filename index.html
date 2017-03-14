@@ -172,8 +172,7 @@
 </article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r-">
 
 <ul>
-<li><p><strong>TODO</strong></p></li>
-<li><p>向量式的運算</p></li>
+<li>向量式的運算</li>
 </ul>
 
 <pre class = 'prettyprint lang-r'>c(1, 2, 3) + 1</pre>
@@ -184,33 +183,7 @@
 
 <pre >## [1] 3 5 7</pre>
 
-<p>沒關係不重要，搞懂 <code>Dataframe</code> 就好</p>
-
-<pre class = 'prettyprint lang-r'>library(dplyr)</pre>
-
-<pre >## 
-## Attaching package: &#39;dplyr&#39;</pre>
-
-<pre >## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</pre>
-
-<pre >## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</pre>
-
-<pre class = 'prettyprint lang-r'>DF &lt;- data_frame(&quot;colA&quot; = c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), &quot;num&quot; = c(1, 2, 3))
-DF</pre>
-
-<pre >## Source: local data frame [3 x 2]
-## 
-##    colA   num
-##   (chr) (dbl)
-## 1     A     1
-## 2     B     2
-## 3     C     3</pre>
-
-</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article >
+</article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r--1">
 
 <ul>
 <li>tidyverse</li>
@@ -223,12 +196,31 @@ library(tidyverse)</pre>
 ## Loading tidyverse: tibble
 ## Loading tidyverse: tidyr
 ## Loading tidyverse: readr
-## Loading tidyverse: purrr</pre>
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr</pre>
 
 <pre >## Conflicts with tidy packages ----------------------------------------------</pre>
 
 <pre >## filter(): dplyr, stats
 ## lag():    dplyr, stats</pre>
+
+</article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r--2">
+
+<ul>
+<li>沒關係不重要，搞懂 <code>Dataframe</code> 就好</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>DF &lt;- data_frame(&quot;colA&quot; = c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), &quot;num&quot; = c(1, 2, 3))
+DF</pre>
+
+<pre >## # A tibble: 3 × 2
+##    colA   num
+## * &lt;chr&gt; &lt;dbl&gt;
+## 1     A     1
+## 2     B     2
+## 3     C     3</pre>
+
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article >
 
 </article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-1">
 
