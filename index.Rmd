@@ -1,15 +1,39 @@
 ---
-title: "實作！新聞中的資訊圖表"
-subtitle: "連ＯＯ都在用的 `ggplot2`"
+title: "新聞中的資料圖表工作坊｜`ggplot2` 繪圖教學"
+subtitle: "資料新聞專案下午茶"
 author: "知了新聞團隊"
 # date: "3/19/2017"
 date: "`r Sys.Date()`"
 output: ioslides_presentation
 ---
 
-## R / RStudio 介紹
+## R / RStudio
 
-## RStudio 快捷鍵們
+安裝
+
+沒安裝的人今天應該進不來（兇
+
+## RStudio
+
+### 介面介紹
+
+- 編輯器（Source）
+
+- 執行環境（Console）
+
+- 環境變數（⋯⋯）
+
+- 繪圖區（⋯⋯）
+
+## 中文設定
+
+- <Windows> 系統上最常遇到的問題——中文編碼問題
+
+- `BIG-5` v.s. `UTF-8`
+
+- Tools > Global Options > Default text encoding
+
+## RStudio 的<del>快樂夥伴</del>快捷鍵們
 
 [All RStudio keyboard shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
@@ -22,8 +46,18 @@ output: ioslides_presentation
 存擋                    | Ctrl+S             | Command+S
 縮排                    | Ctrl+I             | Command+I
 
+## 先把 R 當成計算機
+
+```{r}
+1 + 1
+```
+
+## 
+
 ```{r child = 'rbasic.Rmd'}
 ```
 
 ```{r child = 'ggplot2.Rmd'}
 ```
+
+## 補充
