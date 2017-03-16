@@ -4,14 +4,16 @@ subtitle: "資料新聞專案下午茶"
 author: "知了新聞團隊"
 # date: "3/19/2017"
 date: "`r Sys.Date()`"
-output: ioslides_presentation
+output: 
+  ioslides_presentation:
+    incremental: true
 ---
 
 ## R / RStudio
 
-安裝
+- 安裝
 
-沒安裝的人今天應該進不來（兇
+- 沒安裝的人今天應該進不來（兇
 
 ## RStudio
 
@@ -60,4 +62,6 @@ output: ioslides_presentation
 ```{r child = 'ggplot2-slides/ggplot.Rmd'}
 ```
 
-## 補充
+## 畫地圖
+
+- 給 Miss Monday 一點 bonus
