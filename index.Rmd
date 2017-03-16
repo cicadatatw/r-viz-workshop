@@ -57,7 +57,7 @@ output: ioslides_presentation
 ```{r child = 'rbasic.Rmd'}
 ```
 
-```{r child = 'ggplot2.Rmd'}
+```{r child = 'ggplot2-slides/ggplot.Rmd'}
 ```
 
 ## 補充
