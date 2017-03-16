@@ -1,0 +1,3 @@
+[submodule "ggplot2-slides"]
+	path = ggplot2-slides
+	url = https://github.com/peorthrind/R-tutorial.git
