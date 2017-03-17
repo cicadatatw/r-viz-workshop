@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2017-03-14" />
+  <meta name="date" content="2017-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -89,29 +89,110 @@
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">2017-03-14</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2017-03-18</p>
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r-">
+<slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r-" class="build">
 
-<ul>
+<ul class = 'build'>
 <li>向量式的運算</li>
+<li>％＆＠＄＾＊％＠！</li>
+<li>「阿鬼你還是說中文吧！」</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>c(1, 2, 3) + 1</pre>
+<pre class = 'prettyprint lang-r'>c(1, 2, 3, 4) + 1</pre>
 
-<pre >## [1] 2 3 4</pre>
+<pre >## [1] 2 3 4 5</pre>
 
-<pre class = 'prettyprint lang-r'>c(1, 2, 3) + c(2, 3, 4)</pre>
+<pre class = 'prettyprint lang-r'>c(1, 2, 3, 4) + c(2, 3, 4, 5)</pre>
 
-<pre >## [1] 3 5 7</pre>
+<pre >## [1] 3 5 7 9</pre>
 
-</article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r--1">
+<pre class = 'prettyprint lang-r'>c(1, 2, 3, 4) + c(2, 10)</pre>
 
-<ul>
-<li>tidyverse</li>
+<pre >## [1]  3 12  5 14</pre>
+
+</article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r--1" class="build">
+
+<p><em>To understand computations in R, two slogans are helpful:</em></p>
+
+<ul class = 'build'>
+<li><em>Everything that exists is an object.</em></li>
+<li><em>Everything that happens is a function call.&quot;</em></li>
 </ul>
+
+<p><em>— John Chambers</em> * (Creator of the S programming language, and core member of the R programming language project).*</p>
+
+<div class="columns-2">
+<pre class = 'prettyprint lang-r'>`+`</pre>
+
+<pre >## function (e1, e2)  .Primitive(&quot;+&quot;)</pre>
+
+<pre class = 'prettyprint lang-r'>`&lt;-`</pre>
+
+<pre >## .Primitive(&quot;&lt;-&quot;)</pre>
+
+<pre class = 'prettyprint lang-r'>`[`</pre>
+
+<pre >## .Primitive(&quot;[&quot;)</pre>
+
+<pre class = 'prettyprint lang-r'>`c`</pre>
+
+<pre >## function (...)  .Primitive(&quot;c&quot;)</pre></div>
+
+</article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r--2" class="build">
+
+<ul class = 'build'>
+<li>什麼是 <code>function call</code>？</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>1 + 1</pre>
+
+<pre >## [1] 2</pre>
+
+<pre class = 'prettyprint lang-r'>`+`(1, 1)</pre>
+
+<pre >## [1] 2</pre>
+
+</article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r--3" class="build">
+
+<ul class = 'build'>
+<li>沒關係不重要，搞懂 <code>Dataframe</code> 就好</li>
+<li>（直翻）資料框，就是表格的意思啦</li>
+<li>看起來大概差不多就是長這種樣子（？）</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>wang &lt;- Pitching %&gt;% filter(playerID == &quot;wangch01&quot;) %&gt;% arrange(desc(yearID))
+wang</pre>
+
+<pre >##   playerID yearID stint teamID lgID  W L  G GS CG SHO SV IPouts   H ER HR
+## 1 wangch01   2013     1    TOR   AL  1 2  6  6  0   0  0     81  40 23  5
+## 2 wangch01   2012     1    WAS   NL  2 3 10  5  0   0  0     97  50 24  5
+## 3 wangch01   2011     1    WAS   NL  4 3 11 11  0   0  0    187  67 28  8
+## 4 wangch01   2009     1    NYA   AL  1 6 12  9  0   0  0    126  66 45  7
+## 5 wangch01   2008     1    NYA   AL  8 2 15 15  1   0  0    285  90 43  4
+## 6 wangch01   2007     1    NYA   AL 19 7 30 30  1   0  0    598 199 82  9
+## 7 wangch01   2006     1    NYA   AL 19 6 34 33  2   1  1    654 233 88 12
+## 8 wangch01   2005     1    NYA   AL  8 5 18 17  0   0  0    349 113 52  9
+##   BB  SO BAOpp  ERA IBB WP HBP BK BFP GF  R SH SF GIDP
+## 1  9  14 0.351 7.67   0  2   0  0 123  0 24  0  0   NA
+## 2 15  15 0.376 6.68   0  5   3  0 158  0 24  4  3   NA
+## 3 13  25 0.272 4.04   0  2   1  0 264  0 35  2  2   NA
+## 4 19  29 0.365 9.64   1  3   2  0 206  2 46  3  1   NA
+## 5 35  54 0.249 4.07   1  0   3  0 402  0 44  0  3   NA
+## 6 59 104 0.265 3.70   1  9   8  1 823  0 84  2  3   NA
+## 7 52  76 0.277 3.63   4  6   2  1 900  1 92  3  2   NA
+## 8 32  47 0.256 4.02   3  3   6  0 486  0 58  3  4   NA</pre>
+
+</article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r--4" class="build">
+
+<ul class = 'build'>
+<li>好用工具<code>懶人包</code> 🎒👝👛👜💼</li>
+<li><a href='http://tidyverse.org/' title=''><code>tidyverse</code></a></li>
+</ul>
+
+<p><img src='http://forcats.tidyverse.org/logo.png' title=''/> <img src='http://ggplot2.tidyverse.org/logo.png' title=''/> <img src='http://haven.tidyverse.org/logo.png' title=''/> <img src='http://readr.tidyverse.org/logo.png' title=''/> <img src='http://stringr.tidyverse.org/logo.png' title=''/> <img src='http://tidyr.tidyverse.org/logo.png' title=''/></p>
 
 <pre class = 'prettyprint lang-r'># install.packages(&quot;tidyverse&quot;)
 library(tidyverse)</pre>
@@ -120,38 +201,39 @@ library(tidyverse)</pre>
 ## Loading tidyverse: tibble
 ## Loading tidyverse: tidyr
 ## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr</pre>
+## Loading tidyverse: purrr</pre>
 
 <pre >## Conflicts with tidy packages ----------------------------------------------</pre>
 
 <pre >## filter(): dplyr, stats
 ## lag():    dplyr, stats</pre>
 
-</article></slide><slide class=''><hgroup><h2>R 基礎語法</h2></hgroup><article  id="r--2">
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  class="build">
 
-<ul>
-<li>沒關係不重要，搞懂 <code>Dataframe</code> 就好</li>
+<ul class = 'build'>
+<li>dplyr</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>DF &lt;- data_frame(&quot;colA&quot; = c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), &quot;num&quot; = c(1, 2, 3))
-DF</pre>
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-1" class="build">
 
-<pre >## # A tibble: 3 × 2
-##    colA   num
-## * &lt;chr&gt; &lt;dbl&gt;
-## 1     A     1
-## 2     B     2
-## 3     C     3</pre>
+<ul class = 'build'>
+<li>magrittr (pipe %&gt;%)</li>
+</ul>
 
-</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article >
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-2" class="build">
 
-</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-1">
+<ul class = 'build'>
+<li>dplyr::read_csv</li>
+</ul>
 
-<ul>
-<li><p>dplyr</p></li>
-<li><p>magrittr (pipe %&gt;%)</p></li>
-<li><p><strong>TODO</strong></p></li>
+</article></slide><slide class=''><hgroup><h2><code>ggplot2</code> 的特色跟優勢</h2></hgroup><article  id="ggplot2-" class="build">
+
+<ul class = 'build'>
+<li>視覺化需要的元素</li>
+<li>「畫布」的概念</li>
+<li>「圖層」的概念</li>
+<li>「屬性」的概念</li>
+<li>一張圖最多可以同時呈現七種維度的資訊！</li>
 </ul></article></slide>
 
 

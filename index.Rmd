@@ -2,38 +2,68 @@
 title: "新聞中的資料圖表工作坊｜`ggplot2` 繪圖教學"
 subtitle: "資料新聞專案下午茶"
 author: "知了新聞團隊"
-# date: "3/19/2017"
-date: "`r Sys.Date()`"
+date: "3/19/2017"
+# date: "`r Sys.Date()`"
 output: 
   ioslides_presentation:
+    logo: images/cicadatatw.png
+    widescreen: yes
     incremental: true
 ---
 
-## R / RStudio
+```{r setup 0, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-- 安裝
+# Getting started
 
-- 沒安裝的人今天應該進不來（兇
+---
 
-## RStudio
+### 沒安裝的人今天應該進不來 😈😈😈
 
-### 介面介紹
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fcd6zSk0yd8" frameborder="0" allowfullscreen></iframe>
 
-- 編輯器（Source）
+---
 
-- 執行環境（Console）
+![](http://66.media.tumblr.com/c4693e4e20811bf59390848ca70ae85d/tumblr_o4c7y7geRn1umk6azo1_1280.gif)
 
-- 環境變數（⋯⋯）
+## Summit Suen
 
-- 繪圖區（⋯⋯）
+- Full Stack Developer / Data Scientist.
+- 新聞電商推薦系統、輿情監控、運動數據分析
+- Taiwan R User Group 共同主持人｜[社群活動](https://www.meetup.com/Taiwan-R/)｜[聚會錄影](https://www.youtube.com/user/TWuseRGroup)
+- ![](images/MVP_Logo.png)
 
-## 中文設定
+## RStudio & R & ...
 
-- <Windows> 系統上最常遇到的問題——中文編碼問題
+<img src="https://developer.r-project.org/Logo/Rlogo-1.png" height="80"/>
+<img src="https://www.r-project.org/logo/Rlogo.png" height="80"/>
+<img src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-Blue-Gradient.png" height="80"/>
+<img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b01b8d151ef48970c-pi" height="80"/>
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" height="80"/>
 
-- `BIG-5` v.s. `UTF-8`
+<img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b01b8d18cfeeb970c-pi" width="600"/>
 
-- Tools > Global Options > Default text encoding
+## RStudio 中文設定
+
+### Tools > Global Options > Default text encoding
+<img src="images/rstudio_encoding.png" width="600"/>
+
+## RStudio 初始環境
+
+### Tools > Global Options
+<img src="images/rstudio_layout.png" width="600"/>
+
+## RStudio `命令列`介面
+
+### 注意命令列的狀態：`>` or `+`；愛惜生命，常用 `tab` 和 `?`
+<img src="images/rstudio_console.png" width="450"/>
+<img src="images/rstudio_console2.png" width="450"/>
+
+## RStudio `程式碼` 編輯介面
+
+### 養成在編輯界面撰寫的習慣
+<img src="images/rstudio_source.png" width="450"/>
 
 ## RStudio 的<del>快樂夥伴</del>快捷鍵們
 
@@ -48,16 +78,55 @@ output:
 存擋                    | Ctrl+S             | Command+S
 縮排                    | Ctrl+I             | Command+I
 
-## 先把 R 當成計算機
+## R 到底是什麼東西 R {.build}
 
-```{r}
+### 先把 R 當成計算機
+```{r calculator}
 1 + 1
+sin(2017)
+pi
 ```
 
-## 
+## R 到底是什麼東西 R {.build}
+
+### 統計是看家本領
+```{r statistics}
+# Kolmogorov-Smirnov Tests
+ks.test(iris$Sepal.Length, iris$Petal.Length)
+```
+
+## R 到底是什麼東西 R {.build}
+
+### 統計是看家本領
+```{r statistics density}
+plot(density(iris$Sepal.Length), xlim = range(c(iris$Sepal.Length, iris$Petal.Length)), main = "Sample PDF")
+lines(density(iris$Petal.Length), col = 2)
+```
+
+## R 到底是什麼東西 R
+
+### A/B Testing（媒體、電子商務、流量成長駭客必備工具）
+- 我們使用兩套方法做推薦，要比較推薦（或功能）的成效
+  + 方法 A：在 10000 點擊有 10 個購買
+  + 方法 B：在  5000 點擊有  3 個購買
+- 我怎麼知道這兩種方法的轉換率（購買／點擊）是不是明顯不同？
+
+## R 到底是什麼東西 R
+
+### A/B Testing（媒體、電子商務、流量成長駭客必備工具）{.build}
+```{r more statistics}
+# install.packages("binom")
+library(binom)
+# Binomial confidence intervals
+binom.confint(c(10, 3), c(10000, 5000), methods = "exact")
+```
+
+# 資料前處理 `dplyr`
 
 ```{r child = 'rbasic.Rmd'}
 ```
+
+# 資料視覺化 `ggplot2`
 
 ```{r child = 'ggplot2-slides/ggplot.Rmd'}
 ```
