@@ -3,44 +3,118 @@ title: "rbasic"
 author: "知了新聞團隊"
 # date: "3/19/2017"
 date: "`r Sys.Date()`"
-output: ioslides_presentation
+output:
+  ioslides_presentation:
+    incremental: true
 ---
 
-## R 基礎語法
-
-- 向量式的運算
-
-```{r}
-c(1, 2, 3) + 1
-c(1, 2, 3) + c(2, 3, 4)
+```{r setup 1, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE )
 ```
 
-## R 基礎語法
+## R 基礎語法 {.build}
 
-- tidyverse
+- 向量式的運算
+- ％＆＠＄＾＊％＠！
+- 「阿鬼你還是說中文吧！」
+```{r vectorize}
+c(1, 2, 3, 4) + 1
+c(1, 2, 3, 4) + c(2, 3, 4, 5)
+c(1, 2, 3, 4) + c(2, 10)
+```
 
-```{r}
+## R 基礎語法 {.build}
+
+*To understand computations in R, two slogans are helpful:*
+
+- *Everything that exists is an object.*
+- *Everything that happens is a function call."*
+
+*— John Chambers*
+
+<div class="columns-2">
+
+```{r function call, warning=FALSE, message=FALSE}
+`+`
+`<-`
+`[`
+`c`
+```
+
+</div>
+
+## R 基礎語法 {.build}
+
+- 什麼是 `function call`？
+```{r function call 1}
+1 + 1
+`+`(1, 1)
+```
+
+## R 基礎語法 {.build}
+
+- 沒關係不重要，搞懂 `Dataframe` 就好
+- （直翻）資料框，就是表格的意思啦
+- 看起來大概差不多就是長這種樣子（？）
+```{r dataframe 0, echo=FALSE, warning=FALSE, message=FALSE}
+# install.packages("Lahman")
+library(Lahman)
+library(dplyr)
+```
+
+```{r dataframe}
+wang <- Pitching %>% filter(playerID == "wangch01") %>% arrange(desc(yearID))
+wang
+```
+
+## R 基礎語法 {.build}
+
+- 好用工具`懶人包` 🎒👝👛👜💼 
+- [`tidyverse`](http://tidyverse.org/)
+
+![](http://forcats.tidyverse.org/logo.png)
+![](http://ggplot2.tidyverse.org/logo.png)
+![](http://haven.tidyverse.org/logo.png)
+![](http://readr.tidyverse.org/logo.png)
+![](http://stringr.tidyverse.org/logo.png)
+![](http://tidyr.tidyverse.org/logo.png)
+```{r tidyverse}
 # install.packages("tidyverse")
 library(tidyverse)
 ```
 
-## R 基礎語法
-
-- 沒關係不重要，搞懂 `Dataframe` 就好
-
-```{r}
-DF <- data_frame("colA" = c("A", "B", "C"), "num" = c(1, 2, 3))
-DF
-```
-
-## 畫圖之前先把資料讀進來
-
-
-## 畫圖之前先把資料讀進來
+## 畫圖之前先把資料讀進來 {.build}
 
 - dplyr
+```{r dplyr}
+```
+
+**TODO**
+
+## 畫圖之前先把資料讀進來 {.build}
 
 - magrittr (pipe %>%)
+```{r pipe}
+```
 
-- **TODO**
+**TODO**
 
+## 畫圖之前先把資料讀進來 {.build}
+
+- dplyr::read_csv
+- dplyr::data_frame
+- 跟原生方法比起來，效率較高，也不會將文字格式轉成 `factor`（因子）來處理
+```{r read_csv}
+```
+
+**TODO**
+
+## `ggplot2` 的特色跟優勢 {.build}
+
+- 視覺化需要的元素
+  + 「畫布」的概念
+  + 「圖層」的概念
+  + 「屬性」的概念
+- 一張圖最多可以同時呈現七種維度的資訊！
+
+**TODO**
