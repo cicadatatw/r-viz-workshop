@@ -148,8 +148,9 @@ binom.confint(c(10, 3), c(10000, 5000), methods = "exact")
 
 ## 畫地圖 {.build}
 
-- 應 `Miss Monday` 要求（誤
-- 讀 `shapefile` 地圖檔
+- 上次的知了小學堂 Miss Monday 教了大家 `QGIS`
+- 你知道在 R 裡面也可以畫地圖嗎 😂😂😂
+- 讀 `shapefile` 地圖檔（可以在 `QGIS` 先處理完）
 
 <img src="images/shapefile_folder.png" height="80"/>
 ```{r map 0, echo=TRUE, warning=FALSE, message=FALSE}
