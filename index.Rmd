@@ -135,7 +135,7 @@ binom.confint(c(10, 3), c(10000, 5000), methods = "exact")
 
 # 更多學習資源
 
-## Learning Materials {.build}
+## Learning Materials
 
 - [Try R](http://tryr.codeschool.com/)
 - [DataCamp](https://www.datacamp.com/getting-started?step=2&track=r)
@@ -148,16 +148,16 @@ binom.confint(c(10, 3), c(10000, 5000), methods = "exact")
 
 ## 畫地圖 {.build}
 
-- `Miss Monday` 威力加強版（誤
+- 應 `Miss Monday` 要求（誤
 - 讀 `shapefile` 地圖檔
+
+<img src="images/shapefile_folder.png" height="80"/>
 ```{r map 0, echo=TRUE, warning=FALSE, message=FALSE}
 # install.packages(c("rgdal", "ggmap"))
 # brew install gdal
-
 library(rgdal)
 library(ggplot2)
 library(ggmap)
-
 shapefile <- readOGR("shapefile", "Town_MOI_1041215_C_Name_臺北市")
 ```
 
