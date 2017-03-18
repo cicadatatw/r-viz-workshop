@@ -101,7 +101,7 @@ library(tidyverse)
 
 ## 畫圖之前先把資料讀進來 {.build}
 
-- dplyrreadad_csv
+- readr::read_csv
 - dplyr::data_frame
 - 跟原生方法比起來，效率較高，也不會將文字格式轉成 `factor`（因子）來處理
 ```{r read_csv}
