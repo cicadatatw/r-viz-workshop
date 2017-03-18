@@ -36,11 +36,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## RStudio & R & ...
 
-<img src="https://developer.r-project.org/Logo/Rlogo-1.png" height="80"/>
-<img src="https://www.r-project.org/logo/Rlogo.png" height="80"/>
-<img src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-Blue-Gradient.png" height="80"/>
-<img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b01b8d151ef48970c-pi" height="80"/>
-<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" height="80"/>
+<img src="https://developer.r-project.org/Logo/Rlogo-1.png" height="100"/>
+<img src="https://www.r-project.org/logo/Rlogo.png" height="100"/>
+<img src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-Blue-Gradient.png" height="100"/>
+<img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b01b8d151ef48970c-pi" height="100"/>
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" height="100"/>
 
 <img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b01b8d18cfeeb970c-pi" width="600"/>
 
@@ -105,7 +105,7 @@ lines(density(iris$Petal.Length), col = 2)
 
 ## R 到底是什麼東西 R
 
-### A/B Testing（媒體、電子商務、流量成長駭客必備工具）
+# {.build}## A/B Testing（媒體、電子商務、流量成長駭客必備工具）
 - 我們使用兩套方法做推薦，要比較推薦（或功能）的成效
   + 方法 A：在 10000 點擊有 10 個購買
   + 方法 B：在  5000 點擊有  3 個購買
@@ -113,7 +113,7 @@ lines(density(iris$Petal.Length), col = 2)
 
 ## R 到底是什麼東西 R
 
-### A/B Testing（媒體、電子商務、流量成長駭客必備工具）{.build}
+# {.build}## A/B Testing（媒體、電子商務、流量成長駭客必備工具）{.build}
 ```{r more statistics}
 # install.packages("binom")
 library(binom)
@@ -131,13 +131,25 @@ binom.confint(c(10, 3), c(10000, 5000), methods = "exact")
 ```{r child = 'ggplot2-slides/ggplot.Rmd'}
 ```
 
-# 手把手
+# 手把手時間
+
+# 更多學習資源
+
+## Learning Materials {.build}
+
+- [Try R](http://tryr.codeschool.com/)
+- [DataCamp](https://www.datacamp.com/getting-started?step=2&track=r)
+- [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)
+- [.Rddj](https://rddj.info/)
+- [538 w/ R](http://blog.revolutionanalytics.com/2016/07/data-journalism-with-r-at-538.html)
+- [538 on github](https://github.com/fivethirtyeight/guns-data)
 
 # BONUS 時間
 
 ## 畫地圖 {.build}
 
-- 讀 shapefile 地圖檔
+- `Miss Monday` 威力加強版（誤
+- 讀 `shapefile` 地圖檔
 ```{r map 0, echo=TRUE, warning=FALSE, message=FALSE}
 # install.packages(c("rgdal", "ggmap"))
 # brew install gdal
@@ -151,7 +163,7 @@ shapefile <- readOGR("shapefile", "Town_MOI_1041215_C_Name_臺北市")
 
 ## 畫地圖 {.build}
 
-- `ggplot2::fortify` 將讀進來的 shapefile 轉換成為 DataFrame
+- 使用 `ggplot2::fortify()` 將讀進來的 `shapefile` 轉換成為 `DataFrame`
 ```{r map 1, echo=TRUE}
 shapefile_df <- fortify(shapefile)
 shapefile_df %>% head()
@@ -159,7 +171,7 @@ shapefile_df %>% head()
 
 ## 畫地圖 {.build}
 
-- 用 `ggplot2` 畫地圖
+- 使用 `ggplot2::geom_path()` 畫地圖
 ```{r map 2, echo=TRUE}
 map <- ggplot() + 
   geom_path(data = shapefile_df, 
@@ -170,7 +182,7 @@ print(map)
 
 ## 畫地圖 {.build}
 
-- 運用座標工具畫出正確的投影
+- 運用座標投影修正畫出來的地圖
 ```{r map 3, echo=TRUE}
 map_projected <- map + coord_map()
 print(map_projected)
