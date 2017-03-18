@@ -131,8 +131,49 @@ binom.confint(c(10, 3), c(10000, 5000), methods = "exact")
 ```{r child = 'ggplot2-slides/ggplot.Rmd'}
 ```
 
-## 畫地圖
+# 手把手
 
-- 給 Miss Monday 一點 bonus
+# BONUS 時間
 
-**TODO**
+## 畫地圖 {.build}
+
+- 讀 shapefile 地圖檔
+```{r map 0, echo=TRUE, warning=FALSE, message=FALSE}
+# install.packages(c("rgdal", "ggmap"))
+# brew install gdal
+
+library(rgdal)
+library(ggplot2)
+library(ggmap)
+
+shapefile <- readOGR("shapefile", "Town_MOI_1041215_C_Name_臺北市")
+```
+
+## 畫地圖 {.build}
+
+- `ggplot2::fortify` 將讀進來的 shapefile 轉換成為 DataFrame
+```{r map 1, echo=TRUE}
+shapefile_df <- fortify(shapefile)
+shapefile_df %>% head()
+```
+
+## 畫地圖 {.build}
+
+- 用 `ggplot2` 畫地圖
+```{r map 2, echo=TRUE}
+map <- ggplot() + 
+  geom_path(data = shapefile_df, 
+            aes(x = long, y = lat, group = group),
+            color = 'gray', size = 1)
+print(map)
+```
+
+## 畫地圖 {.build}
+
+- 運用座標工具畫出正確的投影
+```{r map 3, echo=TRUE}
+map_projected <- map + coord_map()
+print(map_projected)
+```
+
+# 大家掰掰，期待下次見面：）
