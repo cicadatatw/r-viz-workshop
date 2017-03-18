@@ -62,7 +62,7 @@ library(Lahman)
 library(dplyr)
 ```
 
-```{r dataframe}
+```{r dataframe 1}
 wang <- Pitching %>% filter(playerID == "wangch01") %>% arrange(desc(yearID))
 wang
 ```
@@ -85,35 +85,100 @@ library(tidyverse)
 
 ## 畫圖之前先把資料讀進來 {.build}
 
-- dplyr
-```{r dplyr}
-```
-
-**TODO**
-
-## 畫圖之前先把資料讀進來 {.build}
-
-- magrittr (pipe %>%)
-```{r pipe}
-```
-
-**TODO**
-
-## 畫圖之前先把資料讀進來 {.build}
-
-- readr::read_csv
-- dplyr::data_frame
+- `readr::read_csv()`
 - 跟原生方法比起來，效率較高，也不會將文字格式轉成 `factor`（因子）來處理
-```{r read_csv}
+- 比 `data.table::fread()` 略慢，不過語法較簡單
+```{r read_csv 0}
+traffic <- read_csv("ggplot2-slides/traffic_eng.csv")
 ```
 
-**TODO**
+## 畫圖之前先把資料讀進來 {.build}
 
-## `ggplot2` 的特色跟優勢 {.build}
+- `readr::read_csv()`
+```{r read_csv 1}
+head(traffic, n=3)
+```
 
-- 視覺化需要的元素：
-  + 「畫布」的概念
-  + 「屬性」的概念
-  + 「圖層」的概念
+## 畫圖之前先把資料讀進來 {.build}
 
-- 一張圖可以同時呈現多個維度的資訊！
+- `readr::read_csv()`
+```{r read_csv 2}
+traffic <- read_csv("ggplot2-slides/traffic_eng.csv", col_types = 
+                      cols(
+                        time.year = col_integer(),
+                        time.month = col_integer(),
+                        time.day = col_integer(),
+                        time.hour = col_integer(),
+                        time.minute = col_integer(),
+                        event.level = col_character(),
+                        location.district = col_character(),
+                        location.address = col_character(),
+                        number.dead = col_integer(),
+                        number.injury = col_integer(),
+                        party.sn = col_integer(),
+                        vehicle.type = col_character(),
+                        party.gender = col_character(),
+                        party.age = col_integer(),
+                        party.injury = col_character(),
+                        location.weather = col_character(),
+                        location.speed.limit = col_integer(),
+                        location.road.type = col_character(),
+                        location.type = col_character()
+                      ))
+```
+
+## 畫圖之前先把資料讀進來 {.build}
+
+- `readr::read_csv()`
+```{r read_csv 3}
+head(traffic, n=3)
+```
+
+## 畫圖之前先把資料讀進來 {.build}
+
+- `dplyr::data_frame()`
+- 跟原生方法比起來，效率較高，也不會將文字格式轉成 `factor`（因子）來處理
+- 比 `data.table::data.table()` 略慢，不過語法較簡單
+```{r data_frame}
+traffic <- data_frame(time.year = c(104), time.month = c(1), 
+                      time.day = c(1), time.hour = c(0), 
+                      time.minute = c(0, 1, 2), event.level = c("一般"))
+head(traffic, n=3)
+```
+
+## 畫圖之前先把資料讀進來 {.build}
+
+- `magrittr` (pipe `%>%`)
+- 把工作流程的每一站`串接`起來，簡化開發邏輯跟程式碼
+```{r pipe 0}
+head(traffic, n=3)
+```
+
+## 畫圖之前先把資料讀進來 {.build}
+
+- `magrittr` (pipe `%>%`)
+- 把工作流程的每一站`串接`起來，簡化開發邏輯跟程式碼
+```{r pipe 1}
+traffic %>% head(3)
+```
+
+## 畫圖之前先把資料讀進來 {.build}
+
+- `dplyr::select()`
+```{r dplyr 0}
+wang %>% select(yearID, teamID, W, L, ERA)
+```
+
+## 畫圖之前先把資料讀進來 {.build}
+
+- `dplyr::filter()`
+```{r dplyr 1}
+wang %>% filter(GS > 10)
+```
+
+## 畫圖之前先把資料讀進來 {.build}
+
+- `dplyr::summarise()`
+```{r dplyr 2}
+wang %>% group_by(lgID) %>% summarise(mean(ERA))
+```

@@ -211,37 +211,169 @@ library(tidyverse)</pre>
 </article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  class="build">
 
 <ul class = 'build'>
-<li>dplyr</li>
+<li><code>readr::read_csv()</code></li>
+<li>跟原生方法比起來，效率較高，也不會將文字格式轉成 <code>factor</code>（因子）來處理</li>
+<li>比 <code>data.table::fread()</code> 略慢，不過語法較簡單</li>
 </ul>
 
-<p><strong>TODO</strong></p>
+<pre class = 'prettyprint lang-r'>traffic &lt;- read_csv(&quot;ggplot2-slides/traffic_eng.csv&quot;)</pre>
+
+<pre >## Parsed with column specification:
+## cols(
+##   time.year = col_integer(),
+##   time.month = col_integer(),
+##   time.day = col_integer(),
+##   time.hour = col_integer(),
+##   time.minute = col_integer(),
+##   event.level = col_character(),
+##   location.district = col_character(),
+##   location.address = col_character(),
+##   number.dead = col_integer(),
+##   number.injury = col_integer(),
+##   party.sn = col_integer(),
+##   vehicle.type = col_character(),
+##   party.gender = col_character(),
+##   party.age = col_integer(),
+##   party.injury = col_character(),
+##   location.weather = col_character(),
+##   location.speed.limit = col_integer(),
+##   location.road.type = col_character(),
+##   location.type = col_character()
+## )</pre>
 
 </article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-1" class="build">
 
 <ul class = 'build'>
-<li>magrittr (pipe %&gt;%)</li>
+<li><code>readr::read_csv()</code></li>
 </ul>
 
-<p><strong>TODO</strong></p>
+<pre class = 'prettyprint lang-r'>head(traffic, n=3)</pre>
+
+<pre >## # A tibble: 3 × 19
+##   time.year time.month time.day time.hour time.minute event.level
+##       &lt;int&gt;      &lt;int&gt;    &lt;int&gt;     &lt;int&gt;       &lt;int&gt;       &lt;chr&gt;
+## 1       104          1        1         0          18        一般
+## 2       104          1        1         0          18        一般
+## 3       104          1        1         0          18        一般
+## # ... with 13 more variables: location.district &lt;chr&gt;,
+## #   location.address &lt;chr&gt;, number.dead &lt;int&gt;, number.injury &lt;int&gt;,
+## #   party.sn &lt;int&gt;, vehicle.type &lt;chr&gt;, party.gender &lt;chr&gt;,
+## #   party.age &lt;int&gt;, party.injury &lt;chr&gt;, location.weather &lt;chr&gt;,
+## #   location.speed.limit &lt;int&gt;, location.road.type &lt;chr&gt;,
+## #   location.type &lt;chr&gt;</pre>
 
 </article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-2" class="build">
 
 <ul class = 'build'>
-<li>readr::read_csv</li>
-<li>dplyr::data_frame</li>
-<li>跟原生方法比起來，效率較高，也不會將文字格式轉成 <code>factor</code>（因子）來處理</li>
+<li><code>readr::read_csv()</code></li>
 </ul>
 
-<p><strong>TODO</strong></p>
+<pre class = 'prettyprint lang-r'>traffic &lt;- read_csv(&quot;ggplot2-slides/traffic_eng.csv&quot;, col_types = 
+                      cols(
+                        time.year = col_integer(),
+                        time.month = col_integer(),
+                        time.day = col_integer(),
+                        time.hour = col_integer(),
+                        time.minute = col_integer(),
+                        event.level = col_character(),
+                        location.district = col_character(),
+                        location.address = col_character(),
+                        number.dead = col_integer(),
+                        number.injury = col_integer(),
+                        party.sn = col_integer(),
+                        vehicle.type = col_character(),
+                        party.gender = col_character(),
+                        party.age = col_integer(),
+                        party.injury = col_character(),
+                        location.weather = col_character(),
+                        location.speed.limit = col_integer(),
+                        location.road.type = col_character(),
+                        location.type = col_character()
+                      ))</pre>
 
-</article></slide><slide class=''><hgroup><h2><code>ggplot2</code> 的特色跟優勢</h2></hgroup><article  id="ggplot2-" class="build">
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-3" class="build">
 
 <ul class = 'build'>
-<li>視覺化需要的元素：</li>
-<li>「畫布」的概念</li>
-<li>「屬性」的概念</li>
-<li><p>「圖層」的概念</p></li>
-<li><p>一張圖可以同時呈現多個維度的資訊！</p></li>
+<li><code>readr::read_csv()</code></li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>head(traffic, n=3)</pre>
+
+<pre >## # A tibble: 3 × 19
+##   time.year time.month time.day time.hour time.minute event.level
+##       &lt;int&gt;      &lt;int&gt;    &lt;int&gt;     &lt;int&gt;       &lt;int&gt;       &lt;chr&gt;
+## 1       104          1        1         0          18        一般
+## 2       104          1        1         0          18        一般
+## 3       104          1        1         0          18        一般
+## # ... with 13 more variables: location.district &lt;chr&gt;,
+## #   location.address &lt;chr&gt;, number.dead &lt;int&gt;, number.injury &lt;int&gt;,
+## #   party.sn &lt;int&gt;, vehicle.type &lt;chr&gt;, party.gender &lt;chr&gt;,
+## #   party.age &lt;int&gt;, party.injury &lt;chr&gt;, location.weather &lt;chr&gt;,
+## #   location.speed.limit &lt;int&gt;, location.road.type &lt;chr&gt;,
+## #   location.type &lt;chr&gt;</pre>
+
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-4" class="build">
+
+<ul class = 'build'>
+<li><code>dplyr::data_frame()</code></li>
+<li>跟原生方法比起來，效率較高，也不會將文字格式轉成 <code>factor</code>（因子）來處理</li>
+<li>比 <code>data.table::data.table()</code> 略慢，不過語法較簡單</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>traffic &lt;- data_frame(time.year = c(104), time.month = c(1), 
+                      time.day = c(1), time.hour = c(0), 
+                      time.minute = c(0, 1, 2), event.level = c(&quot;一般&quot;))
+head(traffic, n=3)</pre>
+
+<pre >## # A tibble: 3 × 6
+##   time.year time.month time.day time.hour time.minute event.level
+##       &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;chr&gt;
+## 1       104          1        1         0           0        一般
+## 2       104          1        1         0           1        一般
+## 3       104          1        1         0           2        一般</pre>
+
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-5" class="build">
+
+<ul class = 'build'>
+<li><code>magrittr</code> (pipe <code>%&gt;%</code>)</li>
+<li>把工作流程的每一站<code>串接</code>起來，簡化開發邏輯跟程式碼</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>head(traffic, n=3)</pre>
+
+<pre >## # A tibble: 3 × 6
+##   time.year time.month time.day time.hour time.minute event.level
+##       &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;chr&gt;
+## 1       104          1        1         0           0        一般
+## 2       104          1        1         0           1        一般
+## 3       104          1        1         0           2        一般</pre>
+
+<pre class = 'prettyprint lang-r'># equivalent
+traffic %&gt;% head(3)</pre>
+
+<pre >## # A tibble: 3 × 6
+##   time.year time.month time.day time.hour time.minute event.level
+##       &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;chr&gt;
+## 1       104          1        1         0           0        一般
+## 2       104          1        1         0           1        一般
+## 3       104          1        1         0           2        一般</pre>
+
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-6" class="build">
+
+<ul class = 'build'>
+<li><code>dplyr::select()</code></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-7" class="build">
+
+<ul class = 'build'>
+<li><code>dplyr::filter()</code></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>畫圖之前先把資料讀進來</h2></hgroup><article  id="-8" class="build">
+
+<ul class = 'build'>
+<li><code>dplyr::summarise()</code></li>
 </ul></article></slide>
 
 
