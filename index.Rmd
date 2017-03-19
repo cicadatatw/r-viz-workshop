@@ -54,6 +54,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Tools > Global Options
 <img src="images/rstudio_layout.png" width="600"/>
 
+## RStudio 環境設定
+### `setwd('/path/where/your/data/located')`
+<img src="images/rstudio_setwd.png" width="600"/>
+
 ## RStudio `命令列`介面
 
 ### 注意命令列的狀態：`>` or `+`；愛惜生命，常用 `tab` 和 `?`
