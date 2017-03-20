@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE )
 ```
 
-## R 基礎語法 {.build}
+## 回頭來看 R 基礎語法 {.build}
 
 - 向量式的運算
 ```{r vectorize}
@@ -24,7 +24,7 @@ c(1, 2, 3, 4) + c(2, 10)
 - 「阿鬼你還是說中文吧！」
 
 
-## R 基礎語法 {.build}
+## 回頭來看 R 基礎語法 {.build}
 
 *To understand computations in R, two slogans are helpful:*
 
@@ -44,7 +44,7 @@ c(1, 2, 3, 4) + c(2, 10)
 
 </div>
 
-## R 基礎語法 {.build}
+## 回頭來看 R 基礎語法 {.build}
 
 - 什麼是 `function call`？
 ```{r function call 1}
@@ -52,7 +52,7 @@ c(1, 2, 3, 4) + c(2, 10)
 `+`(1, 1)
 ```
 
-## R 基礎語法 {.build}
+## 回頭來看 R 基礎語法 {.build}
 
 - 沒關係不重要，搞懂 `Dataframe` 就好
 - （直翻）資料框，就是表格的意思啦
@@ -68,7 +68,7 @@ wang <- Pitching %>% filter(playerID == "wangch01") %>% arrange(desc(yearID))
 wang
 ```
 
-## R 基礎語法 {.build}
+## 新潮好用的玩意兒 R {.build}
 
 - 好用工具`懶人包` 🎒👝👛👜💼 
 - [`tidyverse`](http://tidyverse.org/)
