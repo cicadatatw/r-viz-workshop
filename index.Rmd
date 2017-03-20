@@ -36,6 +36,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## RStudio & R & ...
 
+### R ecosystem 簡介
 <img src="https://developer.r-project.org/Logo/Rlogo-1.png" height="100"/>
 <img src="https://www.r-project.org/logo/Rlogo.png" height="100"/>
 <img src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-Blue-Gradient.png" height="100"/>
@@ -44,33 +45,40 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b01b8d18cfeeb970c-pi" width="600"/>
 
-## RStudio 中文設定
+## RStudio 新手上路
 
+### 中文編碼設定
 ### Tools > Global Options > Default text encoding
 <img src="images/rstudio_encoding.png" width="600"/>
 
-## RStudio 初始環境
+## RStudio 新手上路
 
+### 初始環境
 ### Tools > Global Options
 <img src="images/rstudio_layout.png" width="600"/>
 
-## RStudio 環境設定
+## RStudio 新手上路
+
+### 工作目錄設定**（重要！）**
 ### `setwd('/path/where/your/data/located')`
 <img src="images/rstudio_setwd.png" width="600"/>
 
-## RStudio `命令列`介面
+## RStudio 新手上路
 
+### `命令列`介面
 ### 注意命令列的狀態：`>` or `+`；愛惜生命，常用 `tab` 和 `?`
 <img src="images/rstudio_console.png" width="450"/>
 <img src="images/rstudio_console2.png" width="450"/>
 
-## RStudio `程式碼` 編輯介面
+## RStudio 新手上路
 
+### `程式碼` 編輯介面
 ### 養成在編輯界面撰寫的習慣
 <img src="images/rstudio_source.png" width="450"/>
 
-## RStudio 的<del>快樂夥伴</del>快捷鍵們
+## RStudio 新手上路
 
+### RStudio 的<del>快樂夥伴</del>快捷鍵們
 [All RStudio keyboard shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
 功能                    | Windows & Linux    | Mac
@@ -110,9 +118,9 @@ lines(density(iris$Petal.Length), col = 2)
 ## R 到底是什麼東西 R {.build}
 
 ### A/B Testing（媒體、電子商務、流量成長駭客必備工具）
-- 我們使用兩套方法做推薦，要比較推薦（或功能）的成效
-  + 方法 A：在 10000 點擊有 10 個購買
-  + 方法 B：在  5000 點擊有  3 個購買
+- 我們的 APP 推出了改版，要比較新舊 UI 功能的成效；於是 sample 了一群 user 試用新介面（功能）
+  + 新介面（功能）：在  3000 點擊有 10 個購買
+  + 舊介面（功能）：在 50000 點擊有 30 個購買
 - 我怎麼知道這兩種方法的轉換率（購買／點擊）是不是明顯不同？
 
 ## R 到底是什麼東西 R {.build}
@@ -122,7 +130,7 @@ lines(density(iris$Petal.Length), col = 2)
 # install.packages("binom")
 library(binom)
 # Binomial confidence intervals
-binom.confint(c(10, 3), c(10000, 5000), methods = "exact")
+binom.confint(c(10, 30), c(3000, 50000), methods = "exact")
 ```
 
 # 資料前處理 `dplyr`
