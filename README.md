@@ -1,13 +1,9 @@
 # 使用R進行視覺化吧！
 
-用R進行資料整理與視覺化的工作坊的講義們在此
+用R進行資料整理與視覺化的工作坊的講義們在此！
 
-## 目錄
-
-- [RStudio快捷鍵](#RStudio快捷鍵們)
-- [安裝／載入套件](#首先安裝／載入今天要使用使用的套件：tidyverse)
-- [R基礎語法](#R基礎語法)
-- [ggplot2繪圖](#開始用ggplot2畫圖八！)
+- 資料集下載：[dropbox](http://bit.ly/2mEV5nk) （Windows使用者請載註明`big5`的檔案，pokemon.csv及guns.csv是全英文檔案，應該不會有編碼問題）
+- 閱讀講課[投影片](https://cicadatatw.github.io/r-viz-workshop/)
 
 
 ## RStudio快捷鍵們
