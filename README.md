@@ -343,7 +343,8 @@ R的主打就是向量式的運算，什麼？你說請講中文？好吧那廢�
 
 ![](images/guns_race_logo.jpg)
 
-- 檔案：gg_guns_race.R
+- 原始碼檔案：sample-code/gg_guns_race.R
+- 資料：sample-code/guns.csv 或 [dropbox下載](https://www.dropbox.com/s/83oa5ubgbhywych/guns.csv?dl=0)（From [Kaggle](https://www.kaggle.com/datasets)）
 
 # 讀入檔案
 guns <- read.csv("~/Downloads/guns.csv")
